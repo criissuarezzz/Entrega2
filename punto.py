@@ -83,16 +83,17 @@ rect = Rectangulo(p1, p2)
 print("El rectángulo tiene una base de {0} y una altura de {1}".format(rect.base(), rect.altura()))
 print("El área del rectángulo es {0}".format(rect.area()))
 
-#Muestra por pantalla el rectangulo dibujado
+
 import turtle
-turtle.setup(400, 400)
-#hacer el rectangulo mas grande
-turtle.setworldcoordinates(-10, -10, 10, 10)
-turtle.penup()
-turtle.goto(p1.x, p1.y)
-turtle.pendown()
-turtle.goto(p2.x, p1.y)
-turtle.goto(p2.x, p2.y)
-turtle.goto(p1.x, p2.y)
-turtle.goto(p1.x, p1.y)
-turtle.done()
+def dibujarRectangulo(p1, p2):
+    turtle.setup(400, 400)
+    #hacer el rectangulo mas grande
+    turtle.setworldcoordinates(-10, -10, 10, 10)
+    turtle.penup()
+    turtle.goto(p1.x, p1.y)   #goto es para mover la flecha, y recorre todo el rectangulo en funcion de las coordenadas que le demos
+    turtle.pendown()
+    turtle.goto(p2.x, p1.y)
+    turtle.goto(p2.x, p2.y)
+    turtle.goto(p1.x, p2.y)
+    turtle.goto(p1.x, p1.y)
+    turtle.done()
