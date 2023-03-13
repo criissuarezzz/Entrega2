@@ -49,8 +49,7 @@ class Punto_menu:
         x = input("Introduce la coordenada x: ")
         y = input("Introduce la coordenada y: ")
         punto = Punto(x, y)
-        
-        return "Has creado el punto {0}".format(punto)
+        print("Has creado el punto {0}".format(punto)) 
     
     @staticmethod
     def cuadrante():
@@ -101,13 +100,7 @@ class Punto_menu:
         p1 = Punto(x1, y1)
         p2 = Punto(x2, y2)
         rect = Rectangulo(p1, p2)
-        print("¿Le gustaría saber el área del rectángulo?")
-        opcion=input("(s/n):")
-        if opcion == "s":
-            return "El área del rectángulo es {0}".format(rect.area())
-        else:
-            return "El rectángulo tiene una base de {0} y una altura de {1}, uno de los vértices está en la coordenada {2}, y en diagonal encontramos el otro punto {3}".format(rect.base(), rect.altura(), p1, p2)
-        
+        return "El rectángulo tiene una base de {0} y una altura de {1}, uno de los vértices está en la coordenada {2}, y en diagonal encontramos el otro punto {3}".format(rect.base(), rect.altura(), p1, p2)
 
 
     
