@@ -130,19 +130,8 @@ class Punto_menu:
             
 
 
-"""def dibujarRectangulo(p1, p2):
-    turtle.setup(400, 400)
-    #hacer el rectangulo mas grande
-    turtle.setworldcoordinates(-10, -10, 10, 10)
-    turtle.penup()
-    turtle.goto(p1.x, p1.y)   #goto es para mover la flecha, y recorre todo el rectangulo en funcion de las coordenadas que le demos
-    turtle.pendown()
-    turtle.goto(p2.x, p1.y)
-    turtle.goto(p2.x, p2.y)
-    turtle.goto(p1.x, p2.y)
-    turtle.goto(p1.x, p1.y)
-    turtle.done()
-"""
+
+
 #Crea los puntos A(2, 3), B(5,5), C(-3, -1) y D(0,0) e imprimelos por pantalla.
 p1 = Punto(2, 3)
 p2 = Punto(5, 5)
@@ -189,3 +178,15 @@ print("\n")
 rect = Rectangulo(p1, p2)
 print("El rectángulo tiene una base de {0} y una altura de {1}".format(rect.base(), rect.altura()))
 print("El área del rectángulo es {0}".format(rect.area()))
+
+turtle.setup(400, 400)
+#hacer el rectangulo mas grande y centrado
+turtle.setworldcoordinates(-10, -10, 10, 10)
+turtle.penup()  #penup es para levantar el lapiz y no dibujar
+turtle.goto(p1.x, p1.y)   #goto (go to) es para mover la flecha, y recorre todo el rectangulo en funcion de las coordenadas que le demos
+turtle.pendown()  #pendown es para bajar el lapiz y dibujar
+turtle.goto(p2.x, p1.y)
+turtle.goto(p2.x, p2.y)
+turtle.goto(p1.x, p2.y)
+turtle.goto(p1.x, p1.y)
+turtle.done()   #trabajo terminado
