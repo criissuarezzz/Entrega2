@@ -13,9 +13,8 @@ def menu():
         print("= 2. Consultar cuadrante            =")
         print("= 3. Crear vector                   =")
         print("= 4. Consultar distancia            =")
-        print("= 5. Listar puntos                  =")
-        print("= 6. Crear rectangulo               =")
-        print("=7. Salir                           =")
+        print("= 5. Crear rectangulo               =")
+        print("= 6. Salir                          =")
         print("=====================================")
         opcion = input("Seleccione una opcion: ")
         helpers.limpiar_pantalla()
@@ -52,13 +51,25 @@ def menu():
                 db.Punto_menu.distancia()
             else:
                 print("Has elegido no continuar")
-                
-        elif opcion=="5":
-            db.Punto_menu.listar_puntos()
-        elif opcion=="6":
-            db.Punto_menu.crear_rectangulo()
 
-        elif opcion=="7":
+
+        elif opcion=="5":
+            print("Has elegido la opción 6, crear rectangulo")
+            op=input("¿Desea continuar? (s/n): ")
+            if op=="s":
+                db.Punto_menu.rectangulo()
+                print("¿Quieres dibujar el rectángulo?:")
+                o=input("(s/n)")
+                if o=="s":
+                    db.Punto_menu.dibujarRectangulo()
+                else:
+                    print("Has elegido no dibujar el rectángulo")
+            else:
+                print("Has elegido no continuar")
+
+
+
+        elif opcion=="6":
             helpers.limpiar_pantalla()
             print("=====================================")
             print("=           HASTA PRONTO            =")

@@ -1,7 +1,10 @@
-import os
 
-def limpiar_pantalla():
-    if os.name == "Windows":
-        os.system("cls")
+import os
+import platform
+import re
+
+def limpiar_pantalla():      # Función para limpiar la pantalla
+    if platform.system() == 'Windows':
+        os.system('cls')
     else:
-        os.system("clear") or os.system("cls")
+        os.system('clear')

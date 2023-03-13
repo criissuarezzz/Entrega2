@@ -43,21 +43,13 @@ class Rectangulo:
 
 
 class Punto_menu:
-    lista = []    #crea una lista vacía
-    with open(config.DATABASE_PATH, newline='\n') as fichero:   #abre el fichero csv
-        reader = fichero.read(fichero, delimiter=';')   #lee el fichero csv
-        for num, x, y in reader:      #recorre el fichero csv
-            num=0
-            punto = Punto(x, y)      #crea un objeto cliente con los datos del fichero csv
-            while punto:
-                num+=1
-                lista.append(num, punto)   #añade el objeto cliente a la lista
-    
+
     @staticmethod
     def crear_punto():
         x = input("Introduce la coordenada x: ")
         y = input("Introduce la coordenada y: ")
         punto = Punto(x, y)
+        
         return "Has creado el punto {0}".format(punto)
     
     @staticmethod
@@ -109,7 +101,15 @@ class Punto_menu:
         p1 = Punto(x1, y1)
         p2 = Punto(x2, y2)
         rect = Rectangulo(p1, p2)
-        return "El rectángulo tiene una base de {0} y una altura de {1}, uno de los vértices está en la coordenada {2}, y en diagonal encontramos el otro punto {3}".format(rect.base(), rect.altura(), p1, p2)
+        print("¿Le gustaría saber el área del rectángulo?")
+        opcion=input("(s/n):")
+        if opcion == "s":
+            return "El área del rectángulo es {0}".format(rect.area())
+        else:
+            return "El rectángulo tiene una base de {0} y una altura de {1}, uno de los vértices está en la coordenada {2}, y en diagonal encontramos el otro punto {3}".format(rect.base(), rect.altura(), p1, p2)
+        
+
+
     
     @staticmethod
     def dibujarRectangulo():
