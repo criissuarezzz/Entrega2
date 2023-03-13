@@ -42,57 +42,10 @@ class Rectangulo:
             return self.base() * self.altura()
 
 
-#Crea los puntos A(2, 3), B(5,5), C(-3, -1) y D(0,0) e imprimelos por pantalla.
-p1 = Punto(2, 3)
-p2 = Punto(5, 5)
-p3 = Punto(-3, 1)
-p4 = Punto(0, 0)
-
-
-#Consulta a que cuadrante pertenecen el punto A, C y D e imprimelos por pantalla.
-print("El punto {0} se encuentra en el {1}".format(p1, p1.cuadrante()))
-print("El punto {0} se encuentra en el {1}".format(p3, p3.cuadrante()))
-print("El punto {0} se encuentra en el {1}".format(p4, p4.cuadrante()))
-print("\n")
-
-#Consulta los vectores AB y BA
-p1p2= p1.vector(p2)
-print("El vector entre {0} y {1} es {2}".format(p1, p2, p1p2))
-p2p1= p2.vector(p1)
-print("El vector entre {0} y {1} es {2}".format(p2, p1, p2p1))
-print("\n")
-
-#Consulta la distancia entre los puntos 'A y B' y 'B y A'. Comprueba el resultado anterior.
-distp1p2 = p1.distancia(p2)
-print("La distancia entre {0} y {1} es {2}".format(p1, p2, distp1p2))
-distp2p1 = p2.distancia(p1)
-print("La distancia entre {0} y {1} es {2}".format(p2, p1, distp2p1))
-print("\n")
-
-#Determina cual de los 3 puntos A, B o C, se encuentra más lejos del origen, punto (0,0)
-def masLejos(p1, p2, p3):
-    distp1 = p1.distancia(Punto(0, 0))
-    distp2 = p2.distancia(Punto(0, 0))
-    distp3 = p3.distancia(Punto(0, 0))
-    if distp1 > distp2 and distp1 > distp3:
-        return p1
-    elif distp2 > distp1 and distp2 > distp3:
-        return p2
-    else:
-        return p3
-
-print("El punto {0} se encuentra más lejos del origen".format(masLejos(p1, p2, p3)))
-print("\n")
-
-#Crea un rectángulo utilizando los puntos A y B.
-rect = Rectangulo(p1, p2)
-print("El rectángulo tiene una base de {0} y una altura de {1}".format(rect.base(), rect.altura()))
-print("El área del rectángulo es {0}".format(rect.area()))
-
 class Punto_menu:
     lista = []    #crea una lista vacía
     with open(config.DATABASE_PATH, newline='\n') as fichero:   #abre el fichero csv
-        reader = fichero.reader(fichero, delimiter=';')   #lee el fichero csv
+        reader = fichero.read(fichero, delimiter=';')   #lee el fichero csv
         for num, x, y in reader:      #recorre el fichero csv
             num=0
             punto = Punto(x, y)      #crea un objeto cliente con los datos del fichero csv
@@ -184,7 +137,7 @@ class Punto_menu:
             
 
 
-def dibujarRectangulo(p1, p2):
+"""def dibujarRectangulo(p1, p2):
     turtle.setup(400, 400)
     #hacer el rectangulo mas grande
     turtle.setworldcoordinates(-10, -10, 10, 10)
@@ -196,3 +149,50 @@ def dibujarRectangulo(p1, p2):
     turtle.goto(p1.x, p2.y)
     turtle.goto(p1.x, p1.y)
     turtle.done()
+"""
+#Crea los puntos A(2, 3), B(5,5), C(-3, -1) y D(0,0) e imprimelos por pantalla.
+p1 = Punto(2, 3)
+p2 = Punto(5, 5)
+p3 = Punto(-3, 1)
+p4 = Punto(0, 0)
+
+
+#Consulta a que cuadrante pertenecen el punto A, C y D e imprimelos por pantalla.
+print("El punto {0} se encuentra en el {1}".format(p1, p1.cuadrante()))
+print("El punto {0} se encuentra en el {1}".format(p3, p3.cuadrante()))
+print("El punto {0} se encuentra en el {1}".format(p4, p4.cuadrante()))
+print("\n")
+
+#Consulta los vectores AB y BA
+p1p2= p1.vector(p2)
+print("El vector entre {0} y {1} es {2}".format(p1, p2, p1p2))
+p2p1= p2.vector(p1)
+print("El vector entre {0} y {1} es {2}".format(p2, p1, p2p1))
+print("\n")
+
+#Consulta la distancia entre los puntos 'A y B' y 'B y A'. Comprueba el resultado anterior.
+distp1p2 = p1.distancia(p2)
+print("La distancia entre {0} y {1} es {2}".format(p1, p2, distp1p2))
+distp2p1 = p2.distancia(p1)
+print("La distancia entre {0} y {1} es {2}".format(p2, p1, distp2p1))
+print("\n")
+
+#Determina cual de los 3 puntos A, B o C, se encuentra más lejos del origen, punto (0,0)
+def masLejos(p1, p2, p3):
+    distp1 = p1.distancia(Punto(0, 0))
+    distp2 = p2.distancia(Punto(0, 0))
+    distp3 = p3.distancia(Punto(0, 0))
+    if distp1 > distp2 and distp1 > distp3:
+        return p1
+    elif distp2 > distp1 and distp2 > distp3:
+        return p2
+    else:
+        return p3
+
+print("El punto {0} se encuentra más lejos del origen".format(masLejos(p1, p2, p3)))
+print("\n")
+
+#Crea un rectángulo utilizando los puntos A y B.
+rect = Rectangulo(p1, p2)
+print("El rectángulo tiene una base de {0} y una altura de {1}".format(rect.base(), rect.altura()))
+print("El área del rectángulo es {0}".format(rect.area()))
